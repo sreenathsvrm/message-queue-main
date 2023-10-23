@@ -29,7 +29,7 @@ func (app *application) consume(ctx context.Context) {
 			log.Println(err)
 		}
 
-		// get all individual url 
+		// get all individual url
 		urlString := strings.Trim(imageUrls, "{}")
 		urls := strings.Split(urlString, ",")
 

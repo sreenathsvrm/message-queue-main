@@ -1,7 +1,6 @@
 package config
 
 import (
-	"errors"
 	"fmt"
 
 	"github.com/spf13/viper"
@@ -32,17 +31,14 @@ func GetConfig() (*Config, error) {
 	// Read from env
 	for _, env := range envs {
 		if err := viper.BindEnv(env); err != nil {
-			return config, errors.New("error binding " + err.Error())
+			return config, err
 		}
 	}
 
 	// De serialize config values
 	if err := viper.Unmarshal(&config); err != nil {
-		return config, errors.New("error un marshalling " + err.Error())
+		return config, err
 	}
-
-	fmt.Println("DB PORT ", config.DB_PORT)
-	fmt.Println("DB PASSWORD ", config.DB_PASSWORD)
-
+ fmt.Println(config)
 	return config, nil
 }

@@ -1,12 +1,11 @@
 package main
 
 import (
-	"context"
-	"log"
-
 	"consumer/config"
 	"consumer/connection"
 	"consumer/models"
+	"context"
+	"log"
 
 	"github.com/segmentio/kafka-go"
 )

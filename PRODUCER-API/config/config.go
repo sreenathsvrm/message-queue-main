@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/spf13/viper"
+	"fmt"
 )
 
 type Config struct {
@@ -37,6 +38,7 @@ func GetConfig() (*Config, error) {
 	if err := viper.Unmarshal(&config); err != nil {
 		return config, err
 	}
+	fmt.Println(config)
 
 	return config, nil
 }
